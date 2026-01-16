@@ -2,6 +2,7 @@
   const app = document.getElementById('app');
   const loading = document.getElementById('loading');
   const navLinks = document.getElementById('navLinks');
+  const brandLogo = document.getElementById('brandLogo');
   const year = document.getElementById('year');
   year.textContent = String(new Date().getFullYear());
 
@@ -150,11 +151,18 @@
 
   function renderHero(section){
     const wrapper = el('div', { class: 'hero reveal' });
-    wrapper.appendChild(el('h1', {}, [section.title || 'Home']));
-    wrapper.appendChild(el('p', { class: 'hero-tagline' }, [section.tagline || 'TODO: Add home tagline text.']));
+    const heroGrid = el('div', { class: 'hero-grid' });
+    const heroText = el('div', { class: 'hero-text' });
+    heroText.appendChild(el('h1', {}, [section.title || 'Home']));
+    heroText.appendChild(el('p', { class: 'hero-tagline' }, [section.tagline || 'TODO: Add home tagline text.']));
     if (section.subtitle) {
-      wrapper.appendChild(el('p', { class: 'hero-subtitle' }, [section.subtitle]));
+      heroText.appendChild(el('p', { class: 'hero-subtitle' }, [section.subtitle]));
     }
+    heroGrid.appendChild(heroText);
+    if (section.heroImage) {
+      heroGrid.appendChild(el('img', { class: 'hero-image', src: section.heroImage, alt: 'Golden Choice overview' }));
+    }
+    wrapper.appendChild(heroGrid);
     return wrapper;
   }
 
@@ -259,6 +267,19 @@
     return wrapper;
   }
 
+  function renderLogoStrip(items){
+    const wrapper = el('div', { class: 'logo-strip reveal' });
+    (items || []).forEach((item, index) => {
+      const img = el('img', {
+        src: item.src,
+        alt: item.alt || `Logo ${index + 1}`,
+        loading: 'lazy'
+      });
+      wrapper.appendChild(img);
+    });
+    return wrapper;
+  }
+
   function renderContactSection(contact){
     const wrapper = el('div', { class: 'contact-grid reveal' });
     const cards = el('div', { class: 'contact-cards' });
@@ -342,10 +363,16 @@
       const sectionsData = await sectionsRes.json();
 
       const certificates = content.certificates || [];
+      const logos = content.logos || [];
+      const heroImage = content.heroImage;
       const services = content.services || [];
       const contact = content.contact || {};
       const lightbox = createLightbox(certificates);
       const sections = sectionsData.sections || [];
+
+      if (brandLogo && content.brand?.logo) {
+        brandLogo.src = content.brand.logo;
+      }
 
       app.innerHTML = '';
 
@@ -358,7 +385,10 @@
         }
 
         if (section.id === 'home') {
-          inner.appendChild(renderHero(section));
+          inner.appendChild(renderHero({ ...section, heroImage }));
+          if (logos.length) {
+            inner.appendChild(renderLogoStrip(logos));
+          }
         } else if (section.id === 'about') {
           inner.appendChild(renderAbout(section));
         } else if (section.id === 'leadership') {

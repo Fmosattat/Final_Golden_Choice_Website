@@ -1,4 +1,7 @@
 {
+  "brand": {
+    "logo": "logos (1).png"
+  },
   "pages": [
     {
       "id": "page-01",
@@ -144,6 +147,15 @@
     { "src": "Certificates (7).png", "alt": "Certificate image 7" },
     { "src": "Certificates (8).png", "alt": "Certificate image 8" }
   ],
+  "logos": [
+    { "src": "logos (1).png", "alt": "Golden Choice logo 1" },
+    { "src": "logos (2).png", "alt": "Golden Choice logo 2" },
+    { "src": "logos (3).png", "alt": "Golden Choice logo 3" },
+    { "src": "logos (4).png", "alt": "Golden Choice logo 4" },
+    { "src": "logos (5).png", "alt": "Golden Choice logo 5" },
+    { "src": "logos (6).png", "alt": "Golden Choice logo 6" }
+  ],
+  "heroImage": "page-01.webp",
   "awardPhotos": [
     { "src": "photos (1).png", "alt": "Award Function 2023 photo 1" },
     { "src": "photos (2).png", "alt": "Award Function 2023 photo 2" },
