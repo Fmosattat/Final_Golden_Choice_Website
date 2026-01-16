@@ -345,6 +345,7 @@ body.modal-open{
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   display: grid;
   gap: 10px;
+  grid-template-rows: auto auto auto 1fr;
 }
 
 .leader-photo{
