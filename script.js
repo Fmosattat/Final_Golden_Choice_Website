@@ -333,7 +333,8 @@
 
   async function main(){
     try{
-      const res = await fetch('data/content.json', { cache: 'no-store' });
+      const contentUrl = new URL('data/content.json', window.location.href);
+      const res = await fetch(contentUrl, { cache: 'no-store' });
       if (!res.ok) throw new Error(`Failed to load content.json (${res.status})`);
       const data = await res.json();
       const certificates = data.certificates || [];
