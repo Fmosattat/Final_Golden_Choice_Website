@@ -28,6 +28,32 @@
           "title": "About",
           "text": "TODO: Add about text from approved source."
         }
+      ],
+      "teams": [
+        {
+          "name": "TODO: Add team member name.",
+          "role": "TODO: Add team role.",
+          "message": "TODO: Add team message from approved source.",
+          "image": "photos (1).png"
+        },
+        {
+          "name": "TODO: Add team member name.",
+          "role": "TODO: Add team role.",
+          "message": "TODO: Add team message from approved source.",
+          "image": "photos (2).png"
+        },
+        {
+          "name": "TODO: Add team member name.",
+          "role": "TODO: Add team role.",
+          "message": "TODO: Add team message from approved source.",
+          "image": "photos (3).png"
+        },
+        {
+          "name": "TODO: Add team member name.",
+          "role": "TODO: Add team role.",
+          "message": "TODO: Add team message from approved source.",
+          "image": "photos (4).png"
+        }
       ]
     },
     {

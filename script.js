@@ -167,14 +167,35 @@
   }
 
   function renderAbout(section){
-    const wrapper = el('div', { class: 'about-grid reveal' });
+    const wrapper = el('div', { class: 'about-block' });
+    const aboutGrid = el('div', { class: 'about-grid reveal' });
     (section.items || []).forEach(item => {
       const card = el('div', { class: 'info-card' }, [
         el('h3', {}, [item.title || '']),
         el('p', {}, [item.text || 'TODO: Add about text.'])
       ]);
-      wrapper.appendChild(card);
+      aboutGrid.appendChild(card);
     });
+    wrapper.appendChild(aboutGrid);
+
+    if (section.teams?.length) {
+      const teamTitle = el('h3', { class: 'subheading reveal' }, ['Team Messages']);
+      const teamGrid = el('div', { class: 'team-grid reveal' });
+      section.teams.forEach(member => {
+        const card = el('div', { class: 'team-card' }, [
+          el('img', { class: 'team-photo', src: member.image, alt: member.name || 'Team member' }),
+          el('div', { class: 'team-info' }, [
+            el('p', { class: 'team-name' }, [member.name || 'TODO: Add team member name.']),
+            el('p', { class: 'team-role' }, [member.role || 'TODO: Add team role.']),
+            el('p', { class: 'team-message' }, [member.message || 'TODO: Add team message.'])
+          ])
+        ]);
+        teamGrid.appendChild(card);
+      });
+      wrapper.appendChild(teamTitle);
+      wrapper.appendChild(teamGrid);
+    }
+
     return wrapper;
   }
 
