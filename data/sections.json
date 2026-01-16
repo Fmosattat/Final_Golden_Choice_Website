@@ -1,0 +1,133 @@
+{
+  "sections": [
+    {
+      "id": "home",
+      "navLabel": "Home",
+      "title": "Golden Choice Contracting and Services",
+      "tagline": "LET'S CONNECT QATAR",
+      "subtitle": "\"A Hub of Hospitality and Contracting Excellence\" Qatar is known for its booming hospitality industry, with numerous hotels, resorts, and luxury accommodations catering to both leisure and business travelers. Additionally, the contracting and services sector plays a crucial role in supporting Qatar's infrastructure development, with companies involved in construction, maintenance, and facility management. These companies contribute to the country's economic growth and help maintain its reputation for quality service delivery."
+    },
+    {
+      "id": "about",
+      "navLabel": "About",
+      "title": "About",
+      "items": [
+        {
+          "title": "ENTRUSTED THE SPANKING SERVICES",
+          "text": "Welcome to Golden Choice Contracting & Services, where excellence meets commitment. We support Qatar’s growth with reliable manpower solutions and professional support services tailored to your needs. Backed by a skilled team and a client-first approach, we manage the full workforce journey—from sourcing and deployment to documentation and ongoing support. Our focus is quality, compliance, and long-term partnerships, ensuring every project is delivered with efficiency, integrity, and care. Let’s build together for a stronger, more prosperous tomorrow."
+        },
+        {
+          "title": "OUR VISION",
+          "text": "Our vision at Golden Choice Contracting & Services is to foster global prosperity and shared welfare by connecting skilled and unskilled manpower with businesses overseas. We aim to be a leading provider of outsourced recruitment across multiple sectors, including hospitality, security, engineering, construction, scientific, and IT. Through a strong commitment to quality and integrity, we strive to become the first choice for employers and professionals seeking dependable solutions. With continuous growth and improvement, we envision a future built on trust, safety, and efficiency."
+        },
+        {
+          "title": "OUR MISSION",
+          "text": "Golden Choice Contracting & Services is committed to delivering dependable recruitment and support services with professionalism and care. Our mission is to match each vacancy with the most suitable candidates, ensuring efficiency and satisfaction for clients and workers alike. We aim to support companies and contractors with structured processes, experienced coordination, and timely service delivery. By focusing on compliance, quality control, and ongoing improvement, we maintain our reputation as a reliable manpower supplier. We work to build lasting partnerships and provide consistent value in Qatar and beyond."
+        },
+        {
+          "title": "ABOUT OUR COMPANY",
+          "text": "Golden Choice Contracting & Services, established in Qatar, specializes in manpower recruitment and professional support services for businesses across various sectors. We combine practical experience with organized systems to deliver efficient staffing solutions that meet client requirements. Our goal is to support global prosperity by connecting skilled and unskilled workers with overseas opportunities in a structured and compliant manner. We focus on sourcing, screening, documentation, and coordination—ensuring the right workforce is delivered on time. With a strong commitment to quality and reliability, we continue to build trust through service excellence."
+        }
+      ]
+    },
+    {
+      "id": "leadership",
+      "navLabel": "Leadership",
+      "title": "Leadership",
+      "leaders": [
+        {
+          "role": "CEO'S MESSAGE",
+          "name": "Mr. Moshahid Reza",
+          "message": "\"I am driven by a vision for excellence, we assure impeccable manpower solutions, fostering partnerships that redefine industry standards and empower organizational growth.\" As Chairman of Golden Choice, I'm committed to upholding our promises and enhancing organizational productivity through Qator professionals, setting industry standards, and fostering mutually beneficial partnerships with Nepalese talent and organizations. We propose a strategic alliance to provide efficient, economic, and confidential manpower solutions, ensuring satisfaction with blue- and white-collar recruitment needs.",
+          "image": "photos (28).png"
+        },
+        {
+          "role": "GENERAL MANAGER'S MESSAGE",
+          "name": "Mr. Pragyanand Rai",
+          "message": "\"Empowering Success through Integrity, Quality, and Partnership.\" As a General Manager of Golden Choice. With over three decades of experience, we are proud to be a trusted partner in facility management, waste management, and manpower recruitment, delivering tailored solutions to meet the needs of businesses in Qatar and worldwide. Our commitment to quality, efficiency, and professionalism drives everything we do, empowering our clients to achieve their goals. At Golden Choice, we believe in creating mutual growth and value. Our approach centers on integrity and shared success, benefiting both our clients and the talented individuals we support. Thank you for considering us as your partner; we look forward to building a successful future together.",
+          "image": "photos (29).png"
+        },
+        {
+          "role": "OPERATION COORDINATOR'S MESSAGE",
+          "name": "Mr. Vikas Kumar",
+          "message": "\"With relentless dedication to our mission and vision, we are determined to deliver on our promise of exceptional value.with Golden Choice Contracting and Services\" At Golden Choice, we are driven by a singular purpose – to provide exceptional value to our clients. Therefore, we continually improve our operations to meet their evolving needs. Our operational flexibility and commitment to high quality standards allow us to swiftly respond to their requests as soon as the need arises. Maintaining such standards has only been possible through a dedicated workforce, whose well-being and safety remain a priority. As such, we have implemented stringent Adopting a preventative and proactive approach to safety, we are able to focus on streamlining operations and supporting new growth to organisation.",
+          "image": "photos (30).png"
+        },
+        {
+          "role": "ADMIN ACCOUNT'S MESSAGE",
+          "name": "Mr. Akash Sharma",
+          "message": "\"Empowering Financial Success: Trust in Our Dedication to Precision and Growth\" Our accounting team, dedicated to financial integrity and growth, ensures precise and reliable services. With meticulous attention to detail, we uphold the highest standards, safeguarding your financial health. Committed to transparency and efficiency, we navigate complexities with expertise, providing tailored solutions for your needs. Our focus extends beyond numbers; we strive to empower your organization's journey towards success. Trust in our proficiency to manage your finances with precision, enabling you to make informed decisions and seize opportunities. Together, let's build a solid foundation for sustainable growth and prosperity.",
+          "image": "photos (33).png"
+        }
+      ]
+    },
+    {
+      "id": "services",
+      "navLabel": "Services",
+      "title": "Services",
+      "wings": [
+        "Housekeeping Services",
+        "Recruitment Services",
+        "Manpower Outsourcing Services",
+        "Hospitality Services",
+        "PRO Services"
+      ],
+      "industries": [
+        "Hospitality",
+        "Construction",
+        "Facility Management",
+        "Tourism",
+        "Plastic Industry",
+        "Furniture Industry",
+        "Wood Factory",
+        "Steel Industry",
+        "MEP Company",
+        "Marine Industry"
+      ],
+      "clients": "At Golden Choice Contracting & Services, our clients are at the heart of everything we do. We prioritize their needs, ensuring satisfaction and success in every project. With a focus on innovation, integrity, and collaboration, we forge lasting partnerships, driving mutual prosperity and contributing to Qatar's national advancement. Let's connect for unparalleled service and success.",
+      "sourcingCountries": [
+        "India",
+        "Pakistan",
+        "Bangladesh",
+        "SriLanka",
+        "Ghana",
+        "Nepal",
+        "Philippine",
+        "Tunisia",
+        "Jordan",
+        "Kenya",
+        "Nigeria"
+      ],
+      "recruitmentProcess": [
+        "Demand Letter And Legal Documents",
+        "Collect candidate's CV",
+        "Advertisement in origin country",
+        "CV Shortlisting",
+        "CV Screening",
+        "Final Selection to send CV",
+        "Primary Interview",
+        "Interview By Client",
+        "Short listed by client",
+        "Signed offer letter return to client",
+        "Issue offer letter",
+        "QVC process",
+        "Issue VISA",
+        "VISA print by client",
+        "Finger/Medical (QVC)",
+        "Deploy Date/Flight Schedule",
+        "Government Process in origin Country",
+        "Deployed and Handover Workers"
+      ]
+    },
+    {
+      "id": "certificates",
+      "navLabel": "Certificates",
+      "title": "Certificates"
+    },
+    {
+      "id": "contact",
+      "navLabel": "Contact",
+      "title": "Contact"
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "brand": {
+    "logo": "logos (1).png"
+  },
+  "pages": [
+    {
+      "id": "page-01",
+      "title": "Page 01",
+      "image": "page-01.webp",
+      "blocks": []
+    },
+    {
+      "id": "page-02",
+      "title": "Page 02",
+      "image": "page-02.webp",
+      "blocks": []
+    },
+    {
+      "id": "page-03",
+      "title": "Page 03",
+      "image": "page-03.webp",
+      "blocks": [],
+      "services": true
+    },
+    {
+      "id": "page-04",
+      "title": "Page 04",
+      "image": "page-04.webp",
+      "blocks": []
+    },
+    {
+      "id": "page-05",
+      "title": "Page 05",
+      "image": "page-05.webp",
+      "blocks": []
+    },
+    {
+      "id": "page-06",
+      "title": "Page 06",
+      "image": "page-06.webp",
+      "blocks": []
+    },
+    {
+      "id": "page-07",
+      "title": "Page 07",
+      "image": "page-07.webp",
+      "blocks": []
+    },
+    {
+      "id": "page-08",
+      "title": "Page 08",
+      "image": "page-08.webp",
+      "blocks": []
+    },
+    {
+      "id": "page-09",
+      "title": "Page 09",
+      "image": "page-09.webp",
+      "blocks": []
+    },
+    {
+      "id": "page-10",
+      "title": "Page 10",
+      "image": "page-10.webp",
+      "blocks": []
+    },
+    {
+      "id": "page-11",
+      "title": "Page 11",
+      "image": "page-11.webp",
+      "blocks": []
+    },
+    {
+      "id": "page-12",
+      "title": "Page 12",
+      "image": "page-12.webp",
+      "blocks": []
+    },
+    {
+      "id": "certificates",
+      "title": "Certificates",
+      "navLabel": "Certificates",
+      "template": "certificates"
+    },
+    {
+      "id": "page-13",
+      "title": "Page 13",
+      "image": "page-13.webp",
+      "blocks": []
+    },
+    {
+      "id": "page-14",
+      "title": "Page 14",
+      "image": "page-14.webp",
+      "blocks": []
+    },
+    {
+      "id": "page-15",
+      "title": "Page 15",
+      "image": "page-15.webp",
+      "blocks": []
+    },
+    {
+      "id": "page-16",
+      "title": "Page 16",
+      "image": "page-16.webp",
+      "blocks": []
+    },
+    {
+      "id": "award-function-2023",
+      "title": "Award Function 2023",
+      "navLabel": "Award Function 2023",
+      "template": "award"
+    },
+    {
+      "id": "page-17",
+      "title": "Page 17",
+      "image": "page-17.webp",
+      "blocks": []
+    },
+    {
+      "id": "page-18",
+      "title": "Page 18",
+      "image": "page-18.webp",
+      "blocks": []
+    },
+    {
+      "id": "page-19",
+      "title": "Page 19",
+      "image": "page-19.webp",
+      "blocks": []
+    },
+    {
+      "id": "contact",
+      "title": "Contact Us",
+      "navLabel": "Contact",
+      "template": "contact"
+    }
+  ],
+  "certificates": [
+    { "src": "Certificates (1).png", "alt": "Certificate image 1" },
+    { "src": "Certificates (2).png", "alt": "Certificate image 2" },
+    { "src": "Certificates (3).png", "alt": "Certificate image 3" },
+    { "src": "Certificates (4).png", "alt": "Certificate image 4" },
+    { "src": "Certificates (5).png", "alt": "Certificate image 5" },
+    { "src": "Certificates (6).png", "alt": "Certificate image 6" },
+    { "src": "Certificates (7).png", "alt": "Certificate image 7" },
+    { "src": "Certificates (8).png", "alt": "Certificate image 8" }
+  ],
+  "logos": [
+    { "src": "logos (1).png", "alt": "Golden Choice logo 1" },
+    { "src": "logos (2).png", "alt": "Golden Choice logo 2" },
+    { "src": "logos (3).png", "alt": "Golden Choice logo 3" },
+    { "src": "logos (4).png", "alt": "Golden Choice logo 4" },
+    { "src": "logos (5).png", "alt": "Golden Choice logo 5" },
+    { "src": "logos (6).png", "alt": "Golden Choice logo 6" }
+  ],
+  "heroImage": "page-01.webp",
+  "awardPhotos": [
+    { "src": "photos (1).png", "alt": "Award Function 2023 photo 1" },
+    { "src": "photos (2).png", "alt": "Award Function 2023 photo 2" },
+    { "src": "photos (3).png", "alt": "Award Function 2023 photo 3" },
+    { "src": "photos (4).png", "alt": "Award Function 2023 photo 4" },
+    { "src": "photos (5).png", "alt": "Award Function 2023 photo 5" },
+    { "src": "photos (6).png", "alt": "Award Function 2023 photo 6" },
+    { "src": "photos (7).png", "alt": "Award Function 2023 photo 7" },
+    { "src": "photos (8).png", "alt": "Award Function 2023 photo 8" },
+    { "src": "photos (9).png", "alt": "Award Function 2023 photo 9" },
+    { "src": "photos (10).png", "alt": "Award Function 2023 photo 10" },
+    { "src": "photos (11).png", "alt": "Award Function 2023 photo 11" },
+    { "src": "photos (12).png", "alt": "Award Function 2023 photo 12" },
+    { "src": "photos (13).png", "alt": "Award Function 2023 photo 13" },
+    { "src": "photos (14).png", "alt": "Award Function 2023 photo 14" },
+    { "src": "photos (15).png", "alt": "Award Function 2023 photo 15" },
+    { "src": "photos (16).png", "alt": "Award Function 2023 photo 16" },
+    { "src": "photos (17).png", "alt": "Award Function 2023 photo 17" },
+    { "src": "photos (18).png", "alt": "Award Function 2023 photo 18" },
+    { "src": "photos (19).png", "alt": "Award Function 2023 photo 19" },
+    { "src": "photos (20).png", "alt": "Award Function 2023 photo 20" },
+    { "src": "photos (21).png", "alt": "Award Function 2023 photo 21" },
+    { "src": "photos (22).png", "alt": "Award Function 2023 photo 22" },
+    { "src": "photos (23).png", "alt": "Award Function 2023 photo 23" },
+    { "src": "photos (24).png", "alt": "Award Function 2023 photo 24" },
+    { "src": "photos (25).png", "alt": "Award Function 2023 photo 25" },
+    { "src": "photos (26).png", "alt": "Award Function 2023 photo 26" },
+    { "src": "photos (27).png", "alt": "Award Function 2023 photo 27" },
+    { "src": "photos (28).png", "alt": "Award Function 2023 photo 28" },
+    { "src": "photos (29).png", "alt": "Award Function 2023 photo 29" },
+    { "src": "photos (30).png", "alt": "Award Function 2023 photo 30" },
+    { "src": "photos (31).png", "alt": "Award Function 2023 photo 31" },
+    { "src": "photos (32).png", "alt": "Award Function 2023 photo 32" },
+    { "src": "photos (33).png", "alt": "Award Function 2023 photo 33" },
+    { "src": "photos (34).png", "alt": "Award Function 2023 photo 34" },
+    { "src": "photos (35).png", "alt": "Award Function 2023 photo 35" },
+    { "src": "photos (36).png", "alt": "Award Function 2023 photo 36" },
+    { "src": "photos (37).png", "alt": "Award Function 2023 photo 37" },
+    { "src": "photos (38).png", "alt": "Award Function 2023 photo 38" },
+    { "src": "photos (39).png", "alt": "Award Function 2023 photo 39" },
+    { "src": "photos (40).png", "alt": "Award Function 2023 photo 40" }
+  ],
+  "services": [
+    {
+      "title": "Recruitment Services",
+      "description": "Golden Choice provides reliable recruitment solutions by sourcing qualified candidates from India, Pakistan, Bangladesh, Sri Lanka, Ghana, Philippines, Tunisia, Jordan, Kenya, Nigeria, and Nepal. We manage the full recruitment process—from candidate screening and selection to documentation—ensuring you receive the right workforce efficiently and compliantly."
+    },
+    {
+      "title": "Housekeeping Services",
+      "description": "We deliver professional housekeeping services for residential, commercial, and industrial facilities. Our trained teams ensure high standards of cleanliness, hygiene, and presentation, helping you maintain a safe and welcoming environment at all times."
+    },
+    {
+      "title": "Manpower Outsourcing Services",
+      "description": "Golden Choice offers flexible manpower outsourcing services to support your operations with skilled and unskilled workers as per your business needs. We handle staffing, payroll coordination, and workforce management—allowing you to focus on performance, productivity, and growth."
+    },
+    {
+      "title": "Hospitality Services",
+      "description": "We support hotels, restaurants, and hospitality businesses with trained staff to maintain excellent guest experiences. From front-line service to back-of-house roles, our teams help you deliver smooth operations and consistent service quality."
+    },
+    {
+      "title": "PRO Services",
+      "description": "Our PRO services simplify your business documentation and government processes. We assist with employee-related paperwork, renewals, approvals, and other required formalities—saving your time while ensuring everything is handled correctly and on schedule."
+    }
+  ],
+  "contact": {
+    "email": "info@goldenchoiceqa.com",
+    "phone": "+974 31454515, 31454542",
+    "address": "Al - Aziziya building number - 65, 2nd floor, Office number: 07, Doha (Qatar)"
+  }
+}
