@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Golden Choice Contracting and Services</title>
+  <meta name="description" content="Golden Choice Contracting and Services — company profile" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="top" aria-label="Site navigation">
+    <nav class="nav" role="navigation">
+      <div class="nav-pill" id="navLinks" aria-label="Primary">
+        <!-- links injected by script.js -->
+      </div>
+      <div class="nav-pill nav-clock" aria-label="Qatar time">
+        <span class="clock-label">Qatar</span>
+        <span id="qatarClock" class="clock-value">--:--:--</span>
+        <span class="clock-date" id="qatarDate">---</span>
+      </div>
+    </nav>
+  </header>
+
+  <main id="app" class="app" aria-live="polite">
+    <div class="loading" id="loading">Loading…</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© <span id="year"></span> Golden Choice</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
