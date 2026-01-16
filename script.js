@@ -33,82 +33,52 @@
     return node;
   }
 
-  function blocksToCard(blocks){
-    const card = el('div', { class: 'card' });
-    (blocks || []).forEach(b => {
-      if (!b || !b.text) return;
-      if (b.type === 'h1') card.appendChild(el('h1', {}, [b.text]));
-      else if (b.type === 'h2') card.appendChild(el('h2', {}, [b.text]));
-      else if (b.type === 'h3') card.appendChild(el('h3', {}, [b.text]));
-      else if (b.type === 'ul'){
-        const ul = el('ul');
-        (b.items || []).forEach(it => ul.appendChild(el('li', {}, [it])));
-        card.appendChild(ul);
-      } else {
-        card.appendChild(el('p', {}, [b.text]));
-      }
+  function buildNav(sections){
+    navLinks.innerHTML = '';
+    sections.forEach(section => {
+      const a = el('a', { href: `#${section.id}` }, [section.navLabel || section.title || section.id]);
+      navLinks.appendChild(a);
     });
-    if (!card.childNodes.length){
-      card.appendChild(el('p', {}, ['TODO: Add text for this page in data/content.json']));
-    }
-    return card;
+
+    // Active state
+    const anchors = Array.from(navLinks.querySelectorAll('a'));
+    const map = new Map(anchors.map(a => [a.getAttribute('href')?.slice(1), a]));
+
+    const io = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(e => e.isIntersecting)
+        .sort((a,b) => (b.intersectionRatio - a.intersectionRatio));
+      if (!visible.length) return;
+      const id = visible[0].target.id;
+      anchors.forEach(a => a.removeAttribute('aria-current'));
+      const cur = map.get(id);
+      if (cur) cur.setAttribute('aria-current', 'page');
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: [0.1,0.2,0.3,0.4,0.5] });
+
+    sections.forEach(section => {
+      const sec = document.getElementById(section.id);
+      if (sec) io.observe(sec);
+    });
+
+    navLinks.addEventListener('click', (e) => {
+      const a = e.target.closest('a');
+      if (!a) return;
+      const id = a.getAttribute('href')?.slice(1);
+      const target = id ? document.getElementById(id) : null;
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
   }
 
-  function sectionPanel(children){
-    return el('div', { class: 'section-panel' }, children);
-  }
-
-  function renderServices(services){
-    const wrapper = el('div', { class: 'services' });
-    wrapper.appendChild(el('h3', { class: 'panel-title' }, ['Services']));
-
-    const list = el('div', { class: 'services-list' });
-    (services || []).forEach((service, index) => {
-      const buttonId = `service-btn-${index + 1}`;
-      const panelId = `service-panel-${index + 1}`;
-      const item = el('div', { class: 'service-item' });
-      const trigger = el('button', {
-        class: 'service-trigger',
-        type: 'button',
-        id: buttonId,
-        'aria-expanded': 'false',
-        'aria-controls': panelId
-      }, [service.title || 'Service']);
-      const panel = el('div', {
-        class: 'service-panel',
-        id: panelId,
-        role: 'region',
-        'aria-labelledby': buttonId,
-        'data-open': 'false'
-      }, [el('p', {}, [service.description || ''])]);
-      panel.hidden = true;
-
-      trigger.addEventListener('click', () => {
-        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
-        trigger.setAttribute('aria-expanded', String(!isOpen));
-        panel.dataset.open = String(!isOpen);
-        if (!isOpen) {
-          panel.hidden = false;
-          requestAnimationFrame(() => {
-            panel.style.maxHeight = `${panel.scrollHeight}px`;
-            panel.style.opacity = '1';
-          });
-        } else {
-          panel.style.maxHeight = '0px';
-          panel.style.opacity = '0';
-          panel.addEventListener('transitionend', () => {
-            if (panel.dataset.open === 'false') panel.hidden = true;
-          }, { once: true });
-        }
+  function enableReveal(){
+    const items = Array.from(document.querySelectorAll('.reveal'));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('in');
       });
-
-      item.appendChild(trigger);
-      item.appendChild(panel);
-      list.appendChild(item);
-    });
-
-    wrapper.appendChild(list);
-    return wrapper;
+    }, { threshold: 0.12 });
+    items.forEach(n => io.observe(n));
   }
 
   function createLightbox(items){
@@ -175,13 +145,107 @@
       if (event.key === 'ArrowRight') next();
     });
 
-    return { modal, open };
+    return { open };
+  }
+
+  function renderHero(section){
+    const wrapper = el('div', { class: 'hero reveal' });
+    wrapper.appendChild(el('h1', {}, [section.title || 'Home']));
+    wrapper.appendChild(el('p', { class: 'hero-tagline' }, [section.tagline || 'TODO: Add home tagline text.']));
+    if (section.subtitle) {
+      wrapper.appendChild(el('p', { class: 'hero-subtitle' }, [section.subtitle]));
+    }
+    return wrapper;
+  }
+
+  function renderAbout(section){
+    const wrapper = el('div', { class: 'about-grid reveal' });
+    (section.items || []).forEach(item => {
+      const card = el('div', { class: 'info-card' }, [
+        el('h3', {}, [item.title || '']),
+        el('p', {}, [item.text || 'TODO: Add about text.'])
+      ]);
+      wrapper.appendChild(card);
+    });
+    return wrapper;
+  }
+
+  function renderLeadership(section){
+    const wrapper = el('div', { class: 'leadership-grid reveal' });
+    (section.leaders || []).forEach(leader => {
+      const card = el('div', { class: 'leader-card' }, [
+        el('h3', {}, [leader.role || 'Leadership']),
+        el('p', { class: 'leader-name' }, [leader.name || 'TODO: Add leader name.']),
+        el('p', {}, [leader.bio || 'TODO: Add leader bio.'])
+      ]);
+      wrapper.appendChild(card);
+    });
+    return wrapper;
+  }
+
+  function renderServices(section, services){
+    const wrapper = el('div', { class: 'services-block reveal' });
+
+    const infoGrid = el('div', { class: 'info-grid' }, [
+      el('div', { class: 'info-card' }, [
+        el('h3', {}, ['Wings']),
+        el('p', {}, [section.wings || 'TODO: Add Wings text.'])
+      ]),
+      el('div', { class: 'info-card' }, [
+        el('h3', {}, ['Industries']),
+        el('p', {}, [section.industries || 'TODO: Add industries text.'])
+      ]),
+      el('div', { class: 'info-card' }, [
+        el('h3', {}, ['Clients']),
+        el('p', {}, [section.clients || 'TODO: Add clients text.'])
+      ]),
+      el('div', { class: 'info-card' }, [
+        el('h3', {}, ['Recruitment Process']),
+        el('p', {}, [section.recruitmentProcess || 'TODO: Add recruitment process text.'])
+      ])
+    ]);
+
+    const tabList = el('div', { class: 'service-tabs', role: 'tablist', 'aria-label': 'Services' });
+    const panel = el('div', { class: 'service-detail', role: 'region', 'aria-live': 'polite' });
+
+    const serviceItems = services || [];
+
+    function setActive(index){
+      const buttons = Array.from(tabList.querySelectorAll('button'));
+      buttons.forEach((btn, idx) => {
+        const active = idx === index;
+        btn.setAttribute('aria-selected', String(active));
+        btn.classList.toggle('active', active);
+      });
+      const item = serviceItems[index];
+      panel.innerHTML = '';
+      panel.appendChild(el('h4', {}, [item?.title || 'Service']));
+      panel.appendChild(el('p', {}, [item?.description || 'TODO: Add service description.']));
+    }
+
+    serviceItems.forEach((service, index) => {
+      const button = el('button', {
+        type: 'button',
+        role: 'tab',
+        'aria-selected': 'false'
+      }, [service.title || `Service ${index + 1}`]);
+      button.addEventListener('click', () => setActive(index));
+      tabList.appendChild(button);
+    });
+
+    wrapper.appendChild(infoGrid);
+    wrapper.appendChild(tabList);
+    wrapper.appendChild(panel);
+
+    if (serviceItems.length) {
+      setActive(0);
+    }
+
+    return wrapper;
   }
 
   function renderCertificateGallery(items, lightbox){
-    const wrapper = el('div', { class: 'certificates' });
-    wrapper.appendChild(el('h3', { class: 'panel-title' }, ['Certificates']));
-
+    const wrapper = el('div', { class: 'certificates reveal' });
     const grid = el('div', { class: 'cert-grid' });
     (items || []).forEach((item, index) => {
       const button = el('button', { class: 'cert-card', type: 'button' });
@@ -195,24 +259,8 @@
     return wrapper;
   }
 
-  function renderAwardGallery(items){
-    const wrapper = el('div', { class: 'award' });
-    wrapper.appendChild(el('h3', { class: 'panel-title' }, ['Award Function 2023']));
-    const grid = el('div', { class: 'award-grid' });
-    (items || []).forEach((item, index) => {
-      const card = el('div', { class: 'award-card' });
-      const img = el('img', { src: item.src, alt: item.alt || `Award Function 2023 photo ${index + 1}`, loading: 'lazy' });
-      card.appendChild(img);
-      grid.appendChild(card);
-    });
-    wrapper.appendChild(grid);
-    return wrapper;
-  }
-
   function renderContactSection(contact){
-    const wrapper = el('div', { class: 'contact' });
-    wrapper.appendChild(el('h3', { class: 'panel-title' }, ['Contact Us']));
-    const grid = el('div', { class: 'contact-grid' });
+    const wrapper = el('div', { class: 'contact-grid reveal' });
     const cards = el('div', { class: 'contact-cards' });
 
     if (contact?.phone) {
@@ -275,116 +323,59 @@
       window.location.href = mailto;
     });
 
-    grid.appendChild(cards);
-    grid.appendChild(form);
-    wrapper.appendChild(grid);
+    wrapper.appendChild(cards);
+    wrapper.appendChild(form);
     return wrapper;
-  }
-
-  function buildNav(pages){
-    navLinks.innerHTML = '';
-    pages.forEach(p => {
-      const a = el('a', { href: `#${p.id}` }, [p.navLabel || p.title || p.id]);
-      navLinks.appendChild(a);
-    });
-
-    // Active state
-    const anchors = Array.from(navLinks.querySelectorAll('a'));
-    const map = new Map(anchors.map(a => [a.getAttribute('href')?.slice(1), a]));
-
-    const io = new IntersectionObserver((entries) => {
-      // pick most visible
-      const visible = entries
-        .filter(e => e.isIntersecting)
-        .sort((a,b) => (b.intersectionRatio - a.intersectionRatio));
-      if (!visible.length) return;
-      const id = visible[0].target.id;
-      anchors.forEach(a => a.removeAttribute('aria-current'));
-      const cur = map.get(id);
-      if (cur) cur.setAttribute('aria-current', 'page');
-    }, { rootMargin: '-40% 0px -55% 0px', threshold: [0.1,0.2,0.3,0.4,0.5] });
-
-    pages.forEach(p => {
-      const sec = document.getElementById(p.id);
-      if (sec) io.observe(sec);
-    });
-
-    // smooth scroll
-    navLinks.addEventListener('click', (e) => {
-      const a = e.target.closest('a');
-      if (!a) return;
-      const id = a.getAttribute('href')?.slice(1);
-      const target = id ? document.getElementById(id) : null;
-      if (!target) return;
-      e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
-  }
-
-  function enableReveal(){
-    const items = Array.from(document.querySelectorAll('.reveal'));
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('in');
-      });
-    }, { threshold: 0.12 });
-    items.forEach(n => io.observe(n));
   }
 
   async function main(){
     try{
       const contentUrl = new URL('data/content.json', window.location.href);
-      const res = await fetch(contentUrl, { cache: 'no-store' });
-      if (!res.ok) throw new Error(`Failed to load content.json (${res.status})`);
-      const data = await res.json();
-      const certificates = data.certificates || [];
-      const awardPhotos = data.awardPhotos || [];
-      const services = data.services || [];
-      const contact = data.contact || {};
+      const sectionsUrl = new URL('data/sections.json', window.location.href);
+      const [contentRes, sectionsRes] = await Promise.all([
+        fetch(contentUrl, { cache: 'no-store' }),
+        fetch(sectionsUrl, { cache: 'no-store' })
+      ]);
+      if (!contentRes.ok) throw new Error(`Failed to load content.json (${contentRes.status})`);
+      if (!sectionsRes.ok) throw new Error(`Failed to load sections.json (${sectionsRes.status})`);
+      const content = await contentRes.json();
+      const sectionsData = await sectionsRes.json();
+
+      const certificates = content.certificates || [];
+      const services = content.services || [];
+      const contact = content.contact || {};
       const lightbox = createLightbox(certificates);
+      const sections = sectionsData.sections || [];
 
-      // Build pages
       app.innerHTML = '';
-      data.pages.forEach((p) => {
-        const section = el('section', { class: 'section reveal', id: p.id });
-        const titleRow = el('div', { class: 'section-title' }, [
-          el('h2', {}, [p.title || p.id]),
-        ]);
 
-        section.appendChild(titleRow);
+      sections.forEach(section => {
+        const container = el('section', { class: 'section', id: section.id });
+        const inner = el('div', { class: 'section-inner' });
 
-        if (p.template === 'certificates') {
-          section.appendChild(sectionPanel([renderCertificateGallery(certificates, lightbox)]));
-        } else if (p.template === 'award') {
-          section.appendChild(sectionPanel([renderAwardGallery(awardPhotos)]));
-        } else if (p.template === 'contact') {
-          section.appendChild(sectionPanel([renderContactSection(contact)]));
-        } else {
-          const page = el('div', { class: 'page' });
-          const img = el('img', {
-            class: 'page-media',
-            src: p.image,
-            alt: p.title || p.id,
-            loading: p.id === 'page-01' ? 'eager' : 'lazy'
-          });
-          const overlay = el('div', { class: 'page-overlay' }, [ blocksToCard(p.blocks) ]);
-
-          page.appendChild(img);
-          page.appendChild(overlay);
-
-          section.appendChild(page);
-
-          if (p.services) {
-            section.appendChild(sectionPanel([renderServices(services)]));
-          }
-
-          const cap = el('div', { class: 'caption' }, [p.caption || '']);
-          section.appendChild(cap);
+        if (section.title) {
+          inner.appendChild(el('h2', { class: 'section-heading reveal' }, [section.title]));
         }
-        app.appendChild(section);
+
+        if (section.id === 'home') {
+          inner.appendChild(renderHero(section));
+        } else if (section.id === 'about') {
+          inner.appendChild(renderAbout(section));
+        } else if (section.id === 'leadership') {
+          inner.appendChild(renderLeadership(section));
+        } else if (section.id === 'services') {
+          inner.appendChild(renderServices(section, services));
+        } else if (section.id === 'certificates') {
+          inner.appendChild(renderCertificateGallery(certificates, lightbox));
+        } else if (section.id === 'contact') {
+          inner.appendChild(renderContactSection(contact));
+        }
+
+        container.appendChild(inner);
+        app.appendChild(container);
       });
 
-      buildNav(data.pages);
+      buildNav(sections);
       enableReveal();
 
     } catch (err){

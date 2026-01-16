@@ -1,0 +1,80 @@
+{
+  "sections": [
+    {
+      "id": "home",
+      "navLabel": "Home",
+      "title": "Golden Choice Contracting and Services",
+      "tagline": "TODO: Add the home tagline text from approved source.",
+      "subtitle": "TODO: Add supporting home subtitle text from approved source."
+    },
+    {
+      "id": "about",
+      "navLabel": "About",
+      "title": "About",
+      "items": [
+        {
+          "title": "Welcome",
+          "text": "TODO: Add welcome text from approved source."
+        },
+        {
+          "title": "Vision",
+          "text": "TODO: Add vision text from approved source."
+        },
+        {
+          "title": "Mission",
+          "text": "TODO: Add mission text from approved source."
+        },
+        {
+          "title": "About",
+          "text": "TODO: Add about text from approved source."
+        }
+      ]
+    },
+    {
+      "id": "leadership",
+      "navLabel": "Leadership",
+      "title": "Leadership",
+      "leaders": [
+        {
+          "role": "CEO",
+          "name": "TODO: Add CEO name.",
+          "bio": "TODO: Add CEO bio from approved source."
+        },
+        {
+          "role": "GM",
+          "name": "TODO: Add GM name.",
+          "bio": "TODO: Add GM bio from approved source."
+        },
+        {
+          "role": "Operations",
+          "name": "TODO: Add Operations lead name.",
+          "bio": "TODO: Add Operations bio from approved source."
+        },
+        {
+          "role": "Admin",
+          "name": "TODO: Add Admin lead name.",
+          "bio": "TODO: Add Admin bio from approved source."
+        }
+      ]
+    },
+    {
+      "id": "services",
+      "navLabel": "Services",
+      "title": "Services",
+      "wings": "TODO: Add Wings text from approved source.",
+      "industries": "TODO: Add industries text from approved source.",
+      "clients": "TODO: Add clients text from approved source.",
+      "recruitmentProcess": "TODO: Add recruitment process text from approved source."
+    },
+    {
+      "id": "certificates",
+      "navLabel": "Certificates",
+      "title": "Certificates"
+    },
+    {
+      "id": "contact",
+      "navLabel": "Contact",
+      "title": "Contact"
+    }
+  ]
+}
