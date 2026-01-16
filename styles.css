@@ -287,6 +287,11 @@ body.modal-open{
   grid-template-columns: 1fr;
 }
 
+.about-grid{
+  max-width: 720px;
+  margin: 0 auto;
+}
+
 .info-card{
   padding: 18px;
   border-radius: 16px;
@@ -301,6 +306,9 @@ body.modal-open{
 .about-grid .info-card{
   aspect-ratio: 1 / 1;
   justify-content: center;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
 }
 
 .info-card h3{
