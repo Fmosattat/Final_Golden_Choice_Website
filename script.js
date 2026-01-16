@@ -167,35 +167,14 @@
   }
 
   function renderAbout(section){
-    const wrapper = el('div', { class: 'about-block' });
-    const aboutGrid = el('div', { class: 'about-grid reveal' });
+    const wrapper = el('div', { class: 'about-grid reveal' });
     (section.items || []).forEach(item => {
       const card = el('div', { class: 'info-card' }, [
         el('h3', {}, [item.title || '']),
         el('p', {}, [item.text || 'TODO: Add about text.'])
       ]);
-      aboutGrid.appendChild(card);
+      wrapper.appendChild(card);
     });
-    wrapper.appendChild(aboutGrid);
-
-    if (section.teams?.length) {
-      const teamTitle = el('h3', { class: 'subheading reveal' }, ['Team Messages']);
-      const teamGrid = el('div', { class: 'team-grid reveal' });
-      section.teams.forEach(member => {
-        const card = el('div', { class: 'team-card' }, [
-          el('img', { class: 'team-photo', src: member.image, alt: member.name || 'Team member' }),
-          el('div', { class: 'team-info' }, [
-            el('p', { class: 'team-name' }, [member.name || 'TODO: Add team member name.']),
-            el('p', { class: 'team-role' }, [member.role || 'TODO: Add team role.']),
-            el('p', { class: 'team-message' }, [member.message || 'TODO: Add team message.'])
-          ])
-        ]);
-        teamGrid.appendChild(card);
-      });
-      wrapper.appendChild(teamTitle);
-      wrapper.appendChild(teamGrid);
-    }
-
     return wrapper;
   }
 
@@ -203,9 +182,10 @@
     const wrapper = el('div', { class: 'leadership-grid reveal' });
     (section.leaders || []).forEach(leader => {
       const card = el('div', { class: 'leader-card' }, [
-        el('h3', {}, [leader.role || 'Leadership']),
+        el('img', { class: 'leader-photo', src: leader.image, alt: leader.name || 'Leader' }),
+        el('p', { class: 'leader-role' }, [leader.role || 'Leadership']),
         el('p', { class: 'leader-name' }, [leader.name || 'TODO: Add leader name.']),
-        el('p', {}, [leader.bio || 'TODO: Add leader bio.'])
+        el('p', { class: 'leader-message' }, [leader.message || 'TODO: Add leader message.'])
       ]);
       wrapper.appendChild(card);
     });
@@ -215,24 +195,33 @@
   function renderServices(section, services){
     const wrapper = el('div', { class: 'services-block reveal' });
 
-    const infoGrid = el('div', { class: 'info-grid' }, [
-      el('div', { class: 'info-card' }, [
-        el('h3', {}, ['Wings']),
-        el('p', {}, [section.wings || 'TODO: Add Wings text.'])
-      ]),
-      el('div', { class: 'info-card' }, [
-        el('h3', {}, ['Industries']),
-        el('p', {}, [section.industries || 'TODO: Add industries text.'])
-      ]),
-      el('div', { class: 'info-card' }, [
-        el('h3', {}, ['Clients']),
-        el('p', {}, [section.clients || 'TODO: Add clients text.'])
-      ]),
-      el('div', { class: 'info-card' }, [
-        el('h3', {}, ['Recruitment Process']),
-        el('p', {}, [section.recruitmentProcess || 'TODO: Add recruitment process text.'])
-      ])
-    ]);
+    function renderList(items){
+      const list = el('ul', { class: 'info-list' });
+      (items || []).forEach(item => list.appendChild(el('li', {}, [item])));
+      return list;
+    }
+
+    const infoGrid = el('div', { class: 'info-grid' });
+    infoGrid.appendChild(el('div', { class: 'info-card' }, [
+      el('h3', {}, ['Wings of Golden Choice']),
+      Array.isArray(section.wings) ? renderList(section.wings) : el('p', {}, [section.wings || 'TODO: Add Wings text.'])
+    ]));
+    infoGrid.appendChild(el('div', { class: 'info-card' }, [
+      el('h3', {}, ['Industries We Serve']),
+      Array.isArray(section.industries) ? renderList(section.industries) : el('p', {}, [section.industries || 'TODO: Add industries text.'])
+    ]));
+    infoGrid.appendChild(el('div', { class: 'info-card' }, [
+      el('h3', {}, ['Our Valuable Clients']),
+      el('p', {}, [section.clients || 'TODO: Add clients text.'])
+    ]));
+    infoGrid.appendChild(el('div', { class: 'info-card' }, [
+      el('h3', {}, ['Human Resources Sourcing Countries']),
+      Array.isArray(section.sourcingCountries) ? renderList(section.sourcingCountries) : el('p', {}, [section.sourcingCountries || 'TODO: Add sourcing countries text.'])
+    ]));
+    infoGrid.appendChild(el('div', { class: 'info-card' }, [
+      el('h3', {}, ['Manpower Recruitment Process']),
+      Array.isArray(section.recruitmentProcess) ? renderList(section.recruitmentProcess) : el('p', {}, [section.recruitmentProcess || 'TODO: Add recruitment process text.'])
+    ]));
 
     const tabList = el('div', { class: 'service-tabs', role: 'tablist', 'aria-label': 'Services' });
     const panel = el('div', { class: 'service-detail', role: 'region', 'aria-live': 'polite' });
